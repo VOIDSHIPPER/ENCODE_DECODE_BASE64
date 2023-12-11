@@ -23,6 +23,7 @@ def decode_base64(ct):
   for i in ct_bi:
     ct_binary.append(i.encode())
 
+  '''
   #convert to hex
   ct_hex = []
   for i in ct_binary:
@@ -32,6 +33,12 @@ def decode_base64(ct):
   ct_decode = ""
   for i in ct_hex:
     ct_decode += chr(int(i, 16))
+  '''
+  #Convert bytes to char
+  ct_decode = ""
+  for binary_string in ct_binary:
+    decimal_value = int(binary_string, 2)
+    ct_decode += chr(decimal_value)
 
   return ct_decode
 
